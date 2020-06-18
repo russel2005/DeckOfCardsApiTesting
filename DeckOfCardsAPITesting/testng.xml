@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="APISuite">
+	<listeners>
+		<listener class-name="com.deckofcardsapi.utils.Listeners"></listener>
+	</listeners>
+	<test thread-count="5" name="APITest">
+		<classes>			
+			<class name="com.deckofcardsapi.testcases.GetNewDeckAPITests"></class>	
+			<class name="com.deckofcardsapi.testcases.GetDrawCardsAPITests"></class>		
+		</classes>
+	</test>
+</suite>
