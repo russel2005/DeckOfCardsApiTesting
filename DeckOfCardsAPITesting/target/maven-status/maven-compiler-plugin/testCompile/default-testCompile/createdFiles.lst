@@ -1,0 +1,8 @@
+com\deckofcardsapi\testcases\GetDrawCardsAPITests.class
+configs\Endpoint.class
+configs\HeaderConfigs.class
+com\deckofcardsapi\testcases\GetNewDeckAPITests.class
+com\deckofcardsapi\base\BaseTest.class
+com\deckofcardsapi\utils\APIVerification.class
+com\deckofcardsapi\utils\FileandEnv.class
+com\deckofcardsapi\utils\Listeners.class
