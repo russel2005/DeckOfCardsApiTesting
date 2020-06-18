@@ -12,8 +12,8 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Listeners extends TestListenerAdapter{
 	
-	public ExtentHtmlReporter htmlReporter;
-	public ExtentReports extent;
+	private ExtentHtmlReporter htmlReporter;
+	private ExtentReports extent;
 	public static ExtentTest test;
 	
 	@Override
