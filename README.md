@@ -20,6 +20,6 @@ this is API testing project, implement TestNG framework.
 
 
 ### how to run Test in command prompt
-*step 1) open command prompt
-*step 2) go to project folder
-*step 3) `mvn test`
+* step 1) open command prompt
+* step 2) go to project folder
+* step 3) `mvn test`
