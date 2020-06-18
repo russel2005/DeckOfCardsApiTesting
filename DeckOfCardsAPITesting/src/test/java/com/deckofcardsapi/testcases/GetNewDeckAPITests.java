@@ -1,26 +1,28 @@
 package com.deckofcardsapi.testcases;
 
 
-import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.deckofcardsapi.base.BaseTest;
 import com.deckofcardsapi.utils.APIVerification;
 
-import configs.Endpoint;
 import io.restassured.RestAssured;
+import io.restassured.http.Method;
 
 public class GetNewDeckAPITests extends BaseTest {
 	
-	@BeforeMethod
-	public void getAPITest() {		
-		
-		response = RestAssured.given().when().get(Endpoint.GET_NEW_DECK);		
+	@BeforeClass
+	void getAllEmployees() throws InterruptedException {
+		logger.info("********** Started GetNewDeckAPITests **********");
+		RestAssured.basePath = "/api/deck";
+		httpRequest = RestAssured.given();
+		response = httpRequest.request(Method.GET,"/new/");		
+		Thread.sleep(3000);
 	}
-	
+		
 	@Test
 	void checkHeaderContent() {
 		APIVerification.checkHeader(response, "Content-Type", "application/json");
@@ -59,6 +61,11 @@ public class GetNewDeckAPITests extends BaseTest {
 	@AfterMethod
 	public void teardown() {		
 		logger.info("*******Test finished ********");
+	}
+	
+	@AfterClass
+	public void reset() {
+		RestAssured.reset();
 	}
 
 }
