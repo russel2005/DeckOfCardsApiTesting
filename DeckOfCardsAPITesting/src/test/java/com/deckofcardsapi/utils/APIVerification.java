@@ -4,6 +4,7 @@ import org.testng.Assert;
 
 
 import io.restassured.path.json.JsonPath;
+import io.restassured.path.json.exception.JsonPathException;
 import io.restassured.response.Response;
 
 public class APIVerification {
@@ -48,6 +49,7 @@ public class APIVerification {
 			Assert.assertEquals(body.contains(key), true);			
 		}catch(AssertionError e) {
 			System.out.println("Response key not matching.");
+			Assert.assertTrue(false);
 		}catch(Exception e) {
 			System.out.println(e.fillInStackTrace());
 		}
@@ -56,16 +58,59 @@ public class APIVerification {
 	public static void responseKeyAndValueValidation(Response response, String key, String value) {
 		try {
 			JsonPath jsonPath = response.jsonPath();
-			String actualValue = jsonPath.get(key).toString();			
+			String actualValue = jsonPath.get(key).toString();	
+			System.out.println(actualValue);
 			Assert.assertEquals(actualValue, value);			
 		}catch(AssertionError e) {
 			System.out.println("Response value not matching.");
+			Assert.assertTrue(false);
+		}catch(JsonPathException e) {
+			System.out.println("Json response Error!!!");
+			Assert.assertTrue(false);
+		}
+		catch(Exception e) {
+			System.out.println( e.fillInStackTrace());
+		}
+	}
+	
+	
+	//negative test method
+	public static void responseValueIsNotNullOrEmpty(Response response, String key) {
+		try {
+			JsonPath jsonPath = response.jsonPath();
+			
+			String actualValue = jsonPath.get(key).toString();
+			if(isNullOrEmpty(actualValue)) {
+				Assert.assertTrue(false);
+			}else
+				Assert.assertTrue(true);			
 		}catch(Exception e) {
 			System.out.println( e.fillInStackTrace());
 		}
 	}
 	
-
+	public static void responseValueSize(Response response, String key, int size) {
+		try {
+			JsonPath jsonPath = response.jsonPath();
+			
+			int valueSize = jsonPath.get(key).toString().length();
+			if(valueSize != size) {
+				Assert.assertTrue(false);
+			}else
+				Assert.assertTrue(true);			
+		}catch(AssertionError e) {
+			System.out.println("Response data value size is not same.");
+		}catch(Exception e) {
+			System.out.println( e.fillInStackTrace());
+		}
+		
+	}
 	
-	
+		
+	public static boolean isNullOrEmpty(String str) {
+        if(str == null || str.isEmpty())
+            return true;
+        return false;
+    }
+		
 }
