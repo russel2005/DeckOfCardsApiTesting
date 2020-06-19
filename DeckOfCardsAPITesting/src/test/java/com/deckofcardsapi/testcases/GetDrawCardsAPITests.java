@@ -44,6 +44,12 @@ public class GetDrawCardsAPITests extends BaseTest{
 		APIVerification.responseValueSize(response, "deck_id", 12);
 	}
 	
+	//@Test(groups = {"functional", "negative"})
+	void checkResponseWithInvalidDeskId(){		
+		logger.info("*******Checking Response value for invalid deck id ********");
+		APIVerification.responseKeyAndValueValidation(response, "deck_id", "qx5sccmwx2");
+	}
+	
 	/*
 	 * @DataProvider(name="deckId") public Object[] getDeckId() { return new
 	 * Object[] { "ztvz4l7iykco", "bm67jevo8zie", "mu6mcl99zm5g" }; }
