@@ -7,7 +7,7 @@ This is API testing project, implemented in TestNG framework.
 * Maven
 * TestNG
 
-### How to install Maven and Testng?
+### How to install Maven and TestNG?
 * Maven link: `https://maven.apache.org/install.html`
 * TestNG link: `https://testng.org/doc/eclipse.html#eclipse-installation`
 
