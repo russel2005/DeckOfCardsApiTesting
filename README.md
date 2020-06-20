@@ -1,5 +1,5 @@
 # DeckOfCardsApiTesting
-This is API testing project, implemented in TestNG framework.
+This is API testing maven project, implemented in Java TestNG framework with Rest Assured.
 
 # Prerequisite:
 * Java
@@ -12,14 +12,14 @@ This is API testing project, implemented in TestNG framework.
 * TestNG link: `https://testng.org/doc/eclipse.html#eclipse-installation`
 
 ### How to check Java version in windows?
-* in windows open Command Prompt and enter > `java -version`
+* in windows open "Command Prompt" and enter > `java -version`
 
 ### How to check maven version in windows?
-* in windows open Command Prompt and enter > `maven -version`
+* in windows open "Command Prompt" and enter > `maven -version`
 
 
 
-### How to run maven oroject from command prompt?
+### How to run maven project from command prompt?
 * step 1) open command prompt
-* step 2) go to project folder
+* step 2) go to project folder location
 * step 3) `mvn test`
